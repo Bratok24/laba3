@@ -9,9 +9,9 @@ class MyList {
 public:
     //Узел списка 
     struct Node {
-        T data;         // Пользовательские данные
-        Node* next;     // Указатель на следующий
-        Node* prev;     // Указатель на предыдущий
+        T data;      // Пользовательские данные
+        Node* next;  // Указатель на следующий
+        Node* prev;  // Указатель на предыдущий
     };
 
     // Конструкторы / деструктор 
@@ -43,15 +43,15 @@ public:
     // Копирующее присваивание
     MyList& operator=(const MyList& other) {
         if (this == &other) return *this;
-        MyList tmp(other);   // копируем
-        swap(tmp);           // меняемся
-        return *this;        // tmp уничтожится и освободит старые узлы
+        MyList tmp(other);  // копируем
+        swap(tmp);   // меняемся
+        return *this;  // tmp уничтожится и освободит старые узлы
     }
 
     // Перемещающее присваивание
     MyList& operator=(MyList&& other) noexcept {
         if (this == &other) return *this;
-        clear();             // освобождаем свои узлы
+        clear(); // освобождаем свои узлы
 
         m_head = other.m_head;
         m_tail = other.m_tail;

@@ -116,7 +116,7 @@ public:
         return node_at(i)->data;
     }
 
-    // ─────────── Итератор (только вперёд) ───────────
+    // Итератор
     struct iterator {
         Node* ptr;
 
@@ -126,7 +126,6 @@ public:
 
         iterator& operator++() { ptr = ptr->next; return *this; }
         iterator operator++(int) { iterator t = *this; ++ptr; return t; }
-        // operator-- НЕТ — список однонаправленный
 
         bool operator==(const iterator& o) const { return ptr == o.ptr; }
         bool operator!=(const iterator& o) const { return ptr != o.ptr; }

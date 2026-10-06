@@ -1,9 +1,9 @@
 #pragma once
 
-#include <cstddef>     // size_t
-#include <stdexcept>   // std::out_of_range
-#include <utility>     // std::move
-#include <algorithm>   // std::copy, std::move
+#include <cstddef>    
+#include <stdexcept>  
+#include <utility>     
+#include <algorithm>   
 
 // Шаблонный класс T — тип хранимых элементов (будет int)
 template<typename T>
@@ -44,14 +44,14 @@ public:
 
         MyVector tmp(other);  
         swap(tmp); 
-        return *this;                       // tmp уничтожится и освободит старый буфер
+        return *this;  // tmp уничтожится и освободит старый буфер
     }
 
     // Перемещающее присваивание
     MyVector& operator=(MyVector&& other) noexcept {
         if (this == &other) return *this;
 
-        delete[] m_data;                    // освобождаем свой буфер
+        delete[] m_data;  // освобождаем свой буфер
 
         m_data = other.m_data;
         m_size = other.m_size;
