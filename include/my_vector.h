@@ -67,7 +67,7 @@ public:
 
     void push_back(const T& value) {
         if (m_size == m_capacity) {
-            size_t new_cap = (m_capacity == 0) ? 1 : (m_capacity * 3) / 2;
+            size_t new_cap = (m_capacity == 0) ? 1 : (m_capacity * 3 + 1) / 2;
             reserve(new_cap);
         }
         m_data[m_size++] = value;
@@ -78,7 +78,7 @@ public:
             throw std::out_of_range("MyVector::insert: pos > size");
         }
         if (m_size == m_capacity) {
-            size_t new_cap = (m_capacity == 0) ? 1 : (m_capacity * 3) / 2;
+            size_t new_cap = (m_capacity == 0) ? 1 : (m_capacity * 3 + 1) / 2;
             reserve(new_cap);
         }
         // Сдвигаем элементы [pos, size) на один вправо
